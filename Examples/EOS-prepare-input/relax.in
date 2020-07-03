@@ -1,0 +1,62 @@
+&control
+  calculation = 'relax'
+  prefix = 'LiOsO3',
+  pseudo_dir = '/scratch/NetID/pwwork/psp/'
+  outdir = './tmp/'
+  tstress = .true.
+  tprnfor = .true.
+  forc_conv_thr = 1.0d-6,
+  etot_conv_thr = 1.0d-8,
+  verbosity = 'high'
+! lberry=.true.
+! gdir=3
+! nppstr=8
+/
+&system
+  ibrav=  0,
+!  celldm(1)= 9.998295263, celldm(4)=0.5450473584279664
+  nat=  10, ntyp= 3,
+  ecutwfc = 100.0,
+  ecutrho = 400.0, 
+  occupations='smearing',
+  smearing='gauss',
+  degauss=0.005,
+  lspinorb=.true.,
+  noncolin=.true.,
+  starting_magnetization(1)=0.0,
+  starting_magnetization(2)=0.0,
+  starting_magnetization(3)=0.0,
+/
+&electrons
+  conv_thr =  1.0d-12,
+  electron_maxstep = 200,
+  mixing_beta = 0.3,
+/
+&ions
+  ion_dynamics = 'bfgs'
+/
+&cell
+  press = 0.D0
+/
+ATOMIC_SPECIES
+Li  6.941   Li-full.upf   
+Os  190.23 Os-full.upf 
+O   15.9994  O-full.upf
+
+CELL_PARAMETERS {angstrom}
+   2.512269491   1.450459467   4.397688755
+  -2.512269491   1.450459467   4.397688755
+   0.000000000  -2.900918933   4.397688755
+ATOMIC_POSITIONS crystal
+Li       0.215281145   0.215281145   0.215281145
+Li       0.715281160   0.715281160   0.715281160
+Os       0.000011094   0.000011094   0.000011094
+Os       0.500011094   0.500011094   0.500011094
+O        0.755569542   0.120755737   0.380696365
+O        0.380696365   0.755569542   0.120755737
+O        0.120755737   0.380696365   0.755569542
+O        0.620755737   0.255569542   0.880696365
+O        0.255569542   0.880696365   0.620755737
+O        0.880696365   0.620755737   0.255569542
+K_POINTS {automatic}
+8 8 8 0 0 0

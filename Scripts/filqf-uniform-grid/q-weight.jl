@@ -13,6 +13,7 @@ fout = open("Q-weight1.txt", "w")
 df[!,10] = df[!,10]/2
 # round_ratio = round(ratio, digits=2)
 total_weight = sum(df[!,10])
+println(total_weight)
 
 function check_version(answer)
     if answer=="Yes"
